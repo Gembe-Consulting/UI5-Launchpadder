@@ -1,0 +1,57 @@
+<mvc:View controllerName="launchpadder.controller.App"
+        xmlns="sap.ui.unified"
+		xmlns:mvc="sap.ui.core.mvc"
+        xmlns:m="sap.m"
+        xmlns:c="sap.ui.core"
+		>
+	<Shell id="launchpadderShell" icon="{shellModel>/logo}">
+        <headItems>
+            <ShellHeadItem icon="sap-icon://home" startsSection="true" />
+        </headItems>
+        <headEndItems>
+            <ShellHeadItem icon="sap-icon://log" startsSection="true" />
+        </headEndItems>
+        <search>
+            <m:SearchField placeholder="{i18n>shell.searchFieldPlaceholder}" showRefreshButton="true" />
+        </search>
+        <user>
+            <ShellHeadUserItem username="{userModel>/userFullName}" image="{userModel>/userImage}"/>
+        </user>
+        <content>
+        	<m:TileContainer>
+                <m:tiles>
+                    <m:StandardTile press="onTilePressGetCustomData" title="App Title" info="App info" number="1" icon="sap-icon://activate" activeIcon="sap-icon://flag">
+                        <m:customData>
+                            <c:CustomData key="tileAppId" value="idApp1"/>
+                            <c:CustomData key="tileAppUrl" value="/app1"/>
+                        </m:customData>
+                    </m:StandardTile>
+                    <m:StandardTile press="onTilePressGetCustomData" title="App Title" info="App info" number="2" icon="sap-icon://overflow" infoState="Error">
+                        <m:customData>
+                            <c:CustomData key="tileAppId" value="idApp2"/>
+                            <c:CustomData key="tileAppUrl" value="/app2"/>
+                        </m:customData>
+                    </m:StandardTile>
+                    <m:StandardTile press="onTilePressGetCustomData" title="App Title" info="App info" number="3" icon="sap-icon://activity-items" infoState="Warning">
+                        <m:customData>
+                            <c:CustomData key="tileAppId" value="idApp3"/>
+                            <c:CustomData key="tileAppUrl" value="/app3"/>
+                        </m:customData>
+                    </m:StandardTile>
+                    <m:StandardTile press="onTilePressGetCustomData" title="Monitor App Title" info="App info to monitor something" number="4" icon="sap-icon://factory" type="Monitor">
+                        <m:customData>
+                            <c:CustomData key="tileAppId" value="idApp4"/>
+                            <c:CustomData key="tileAppUrl" value="/app4"/>
+                        </m:customData>
+                    </m:StandardTile>
+                    <m:StandardTile press="onTilePressGetCustomData" title="Create App Title" info="App info to create something" number="5" activeIcon="sap-icon://alert" type="Create">
+                        <m:customData>
+                            <c:CustomData key="tileAppId" value="idApp5"/>
+                            <c:CustomData key="tileAppUrl" value="/app5"/>
+                        </m:customData>
+                    </m:StandardTile>
+                </m:tiles>
+            </m:TileContainer>
+        </content>
+    </Shell>
+</mvc:View>

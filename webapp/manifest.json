@@ -1,0 +1,128 @@
+{
+	"_version": "1.2.0",
+    "start_url": "index.html",
+
+	"sap.app": {
+		"_version": "1.2.0",
+		"id": "launchpadder",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{app.Title}}",
+        "subTitle": "{{app.SubTitle}}",
+		"description": "{{app.Description}}",
+		"tags": {
+            "keywords": [
+                "{{app.Keyword1}}", "{{app.Keyword2}}"
+            ]
+    },
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/here/goes/your/serviceUrl/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri" : "localService/metadata.xml"
+				}
+			}
+		}
+	},
+
+	"sap.ui": {
+		"_version": "1.2.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+            "sap_belize",
+			"sap_bluecrystal"
+		]
+	},
+
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": {
+			"viewName": "launchpadder.view.App",
+			"type": "XML",
+			"id": "app"
+		},
+
+		"dependencies": {
+			"minUI5Version": "1.38.0",
+			"libs": {
+                "sap.ui.unified": {},
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "launchpadder.i18n.i18n"
+				}
+			},
+            "shellModel": {
+				"type": "sap.ui.model.json.JSONModel"
+			},
+            "userModel": {
+				"type": "sap.ui.model.json.JSONModel"
+			}
+		},
+
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "launchpadder.view",
+				"controlId": "idLaunchpadder",
+				"controlAggregation": "detailPages",
+				"bypassed": {
+					"target": ["master", "notFound"]
+				},
+				"async": "true"
+			},
+
+			"routes": [
+				{
+					"pattern": "",
+					"name": "master",
+					"target": ["object", "master"]
+				}
+			],
+
+			"targets": {
+				"master": {
+					"viewName": "Master",
+					"viewLevel": 1,
+					"viewId": "master",
+					"controlAggregation": "masterPages"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				}
+			}
+		}
+	}
+}
