@@ -43,24 +43,25 @@ sap.ui.define([
 			getResourceBundle : function () {
 				return this.getOwnerComponent().getModel("i18n").getResourceBundle();
 			},
-
+			
 			/**
 			 * Event handler  for navigating back.
-			 * It checks if there is a history entry. If yes, history.go(-1) will happen.
+			 * It checks if there is a history entry. If yes, history.go(-1) will happen and redirects to the previous hash via the browser’s native History API.
 			 * If not, it will replace the current entry of the browser history with the master route.
+			 * In case there is no previous hash we simply use the router to navigate to the given route.
 			 * @public
 			 */
-			onNavBack : function() {
-				var sPreviousHash = History.getInstance().getPreviousHash();
-
+			onNavBack: function (oEvent) {
+				var oHistory, sPreviousHash;
+				oHistory = History.getInstance();
+				sPreviousHash = oHistory.getPreviousHash();
 				if (sPreviousHash !== undefined) {
 					// The history contains a previous entry
-					history.go(-1);
+					window.history.go(-1);
 				} else {
 					// Otherwise we go backwards with a forward history
-					//var bReplace = true;
-					//this.getRouter().navTo("master", {}, bReplace);
-                    jQuery.sap.log.error("Navigation noch nicht aktiv (launchpadder.controller.BaseController)");
+					var bReplace = true;
+					this.getRouter().navTo("launchpad", {}, bReplace /*no history*/);
 				}
 			}
 

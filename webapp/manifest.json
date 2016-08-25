@@ -20,7 +20,7 @@
 		},
 		"dataSources": {
 			"mainService": {
-				"uri": "/here/goes/your/serviceUrl/",
+				"uri": "http://localhost:1337/services.odata.org/V2/Northwind/Northwind.svc/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
@@ -57,7 +57,7 @@
 		"rootView": {
 			"viewName": "launchpadder.view.App",
 			"type": "XML",
-			"id": "app"
+			"id": "rootApp"
 		},
 
 		"dependencies": {
@@ -95,32 +95,35 @@
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"viewPath": "launchpadder.view",
-				"controlId": "idLaunchpadder",
-				"controlAggregation": "detailPages",
+				"controlId": "launchpadderShell",
+				"controlAggregation": "content",
+				"clearControlAggregation":true,
+				"transition": "slide",
 				"bypassed": {
-					"target": ["master", "notFound"]
+					"target": "notFound"
 				},
-				"async": "true"
+				"async": true
 			},
 
 			"routes": [
 				{
 					"pattern": "",
-					"name": "master",
-					"target": ["object", "master"]
+					"name": "launchpad",
+					"target": "launchpad"
 				}
 			],
 
 			"targets": {
-				"master": {
-					"viewName": "Master",
+				"launchpad": {
+					"viewName": "AppTileContainer",
+					"viewId": "appTileContainer",
 					"viewLevel": 1,
-					"viewId": "master",
-					"controlAggregation": "masterPages"
+					"async": false
 				},
 				"notFound": {
 					"viewName": "NotFound",
-					"viewId": "notFound"
+					"viewId": "notFound",
+					"transition": "show"
 				}
 			}
 		}
