@@ -2,70 +2,92 @@ sap.ui.define([
 		"sap/ui/core/mvc/Controller",
 		"sap/ui/core/routing/History"
 	], function (Controller, History) {
-		"use strict";
+	"use strict";
 
-		return Controller.extend("launchpadder.controller.BaseController", {
-			/**
-			 * Convenience method for accessing the router in every controller of the application.
-			 * @public
-			 * @returns {sap.ui.core.routing.Router} the router for this component
-			 */
-			getRouter : function () {
-				return this.getOwnerComponent().getRouter();
-			},
+	return Controller.extend("launchpadder.controller.BaseController", {
 
-			/**
-			 * Convenience method for getting the view model by name in every controller of the application.
-			 * @public
-			 * @param {string} sName the model name
-			 * @returns {sap.ui.model.Model} the model instance
-			 */
-			getModel : function (sName) {
-				return this.getView().getModel(sName);
-			},
+		onInit : function () {
 
-			/**
-			 * Convenience method for setting the view model in every controller of the application.
-			 * @public
-			 * @param {sap.ui.model.Model} oModel the model instance
-			 * @param {string} sName the model name
-			 * @returns {sap.ui.mvc.View} the view instance
-			 */
-			setModel : function (oModel, sName) {
-				return this.getView().setModel(oModel, sName);
-			},
+			this.getRouter().attachRoutePatternMatched(this.onRoutePatternMatched, this);
+			this.getRouter().attachBypassed(this.onRouteBypassed, this);
+			this.getRouter().attachRouteMatched(this.onRouteMatched, this);
+		},
 
-			/**
-			 * Convenience method for getting the resource bundle.
-			 * @public
-			 * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
-			 */
-			getResourceBundle : function () {
-				return this.getOwnerComponent().getModel("i18n").getResourceBundle();
-			},
-			
-			/**
-			 * Event handler  for navigating back.
-			 * It checks if there is a history entry. If yes, history.go(-1) will happen and redirects to the previous hash via the browser’s native History API.
-			 * If not, it will replace the current entry of the browser history with the master route.
-			 * In case there is no previous hash we simply use the router to navigate to the given route.
-			 * @public
-			 */
-			onNavBack: function (oEvent) {
-				var oHistory, sPreviousHash;
-				oHistory = History.getInstance();
-				sPreviousHash = oHistory.getPreviousHash();
-				if (sPreviousHash !== undefined) {
-					// The history contains a previous entry
-					window.history.go(-1);
-				} else {
-					// Otherwise we go backwards with a forward history
-					var bReplace = true;
-					this.getRouter().navTo("launchpad", {}, bReplace /*no history*/);
-				}
+		/**
+		 * Convenience method for accessing the router in every controller of the application.
+		 * @public
+		 * @returns {sap.ui.core.routing.Router} the router for this component
+		 */
+		getRouter : function () {
+			return this.getOwnerComponent().getRouter();
+		},
+
+		/**
+		 * Convenience method for getting the view model by name in every controller of the application.
+		 * @public
+		 * @param {string} sName the model name
+		 * @returns {sap.ui.model.Model} the model instance
+		 */
+		getModel : function (sName) {
+			return this.getView().getModel(sName);
+		},
+
+		/**
+		 * Convenience method for setting the view model in every controller of the application.
+		 * @public
+		 * @param {sap.ui.model.Model} oModel the model instance
+		 * @param {string} sName the model name
+		 * @returns {sap.ui.mvc.View} the view instance
+		 */
+		setModel : function (oModel, sName) {
+			return this.getView().setModel(oModel, sName);
+		},
+
+		/**
+		 * Convenience method for getting the resource bundle.
+		 * @public
+		 * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
+		 */
+		getResourceBundle : function () {
+			return this.getOwnerComponent().getModel("i18n").getResourceBundle();
+		},
+
+		/**
+		 * Event handler  for navigating back.
+		 * It checks if there is a history entry. If yes, history.go(-1) will happen and redirects to the previous hash via the browser’s native History API.
+		 * If not, it will replace the current entry of the browser history with the master route.
+		 * In case there is no previous hash we simply use the router to navigate to the given route.
+		 * @public
+		 */
+		onNavBack : function (oEvent) {
+			var oHistory,
+			sPreviousHash;
+			oHistory = History.getInstance();
+			sPreviousHash = oHistory.getPreviousHash();
+			if (sPreviousHash !== undefined) {
+				// The history contains a previous entry
+				window.history.go(-1);
+			} else {
+				// Otherwise we go backwards with a forward history
+				var bReplace = true;
+				this.getRouter().navTo("launchpad", {}, bReplace /*no history*/);
 			}
+		},
 
-		});
+		onRouteBypassed : function (oEvent) {
+			var sHash = oEvent.getParameter("hash");
+			// do something here, i.e. send logging data to the back end for analysis
+			// telling what resource the user tried to access...
+			jQuery.sap.log.info("Sorry, but the hash '" + sHash + "' is invalid.", "The resource was not found.");
+		},
 
-	}
-);
+		onRouteMatched : function (oEvent) {
+			
+		},
+		onRoutePatternMatched : function (oEvent) {
+			
+		}
+
+	});
+
+});

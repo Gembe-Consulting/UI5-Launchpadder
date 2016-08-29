@@ -4,33 +4,34 @@
         xmlns="sap.m"
 		displayBlock="true"
 		width="100%" height="100%" >
+	<Button press="openExternalComponent" text="Call Component.js"/>
 	<TileContainer width="100%" height="100%" >
 		<tiles>
-			<StandardTile press="onTilePressGetCustomData" title="App Title" info="App info" number="1" icon="sap-icon://activate" activeIcon="sap-icon://flag">
+			<StandardTile press="onAppTilePress" title="demoapp App" info="in-page hash" number="1" icon="sap-icon://activate" activeIcon="sap-icon://flag">
 				<customData>
 					<c:CustomData key="tileAppId" value="demoapp"/>
-					<c:CustomData key="tileAppUrl" value="/demoapp"/>
+					<c:CustomData key="tileAppUrl" value="#apps/demoapp"/>
 				</customData>
 			</StandardTile>
-			<StandardTile press="onTilePressGetCustomData" title="App Title" info="App info" number="2" icon="sap-icon://overflow" infoState="Error">
+			<StandardTile press="onAppTilePress" title="worklist App" info="in-page hash" number="2" icon="sap-icon://overflow" infoState="Error">
 				<customData>
 					<c:CustomData key="tileAppId" value="idApp2"/>
-					<c:CustomData key="tileAppUrl" value="/app2"/>
+					<c:CustomData key="tileAppUrl" value="#apps/worklist"/>
 				</customData>
 			</StandardTile>
-			<StandardTile press="onTilePressGetCustomData" title="App Title" info="App info" number="3" icon="sap-icon://activity-items" infoState="Warning">
+			<StandardTile press="onAppTilePress" title="worklist Title" info=".html _blank" number="3" icon="sap-icon://activity-items" infoState="Warning">
 				<customData>
 					<c:CustomData key="tileAppId" value="idApp3"/>
-					<c:CustomData key="tileAppUrl" value="/app3"/>
+					<c:CustomData key="tileAppUrl" value="http://localhost:8080/apps/demoapp/webapp/index.html"/>
 				</customData>
 			</StandardTile>
-			<StandardTile press="onTilePressGetCustomData" title="Monitor App Title" info="App info to monitor something" number="4" icon="sap-icon://factory" type="Monitor">
+			<StandardTile press="onAppTilePress" title="Monitor App Title" info="App info to monitor something" number="4" icon="sap-icon://factory" type="Monitor">
 				<customData>
 					<c:CustomData key="tileAppId" value="idApp4"/>
 					<c:CustomData key="tileAppUrl" value="/app4"/>
 				</customData>
 			</StandardTile>
-			<StandardTile press="onTilePressGetCustomData" title="Create App Title" info="App info to create something" number="5" activeIcon="sap-icon://alert" type="Create">
+			<StandardTile press="onAppTilePress" title="Create App Title" info="App info to create something" number="5" activeIcon="sap-icon://alert" type="Create">
 				<customData>
 					<c:CustomData key="tileAppId" value="idApp5"/>
 					<c:CustomData key="tileAppUrl" value="/app5"/>
