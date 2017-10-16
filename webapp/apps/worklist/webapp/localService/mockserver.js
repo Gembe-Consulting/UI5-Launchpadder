@@ -3,7 +3,7 @@ sap.ui.define([
 	], function (MockServer) {
 		"use strict";
 		var oMockServer,
-			_sAppModulePath = "sap/ui/demo/worklist/",
+			_sAppModulePath = "launchpadder/apps/worklist/webapp/",
 			_sJsonFilesModulePath = _sAppModulePath + "localService/mockdata";
 
 		return {

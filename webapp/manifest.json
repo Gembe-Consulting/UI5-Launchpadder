@@ -116,6 +116,14 @@
 					"pattern" : "start",
 					"name" : "start",
 					"target" : "launchpad"
+				}, {
+					"pattern" : "apps/demoapp",
+					"name" : "demoapp",
+					"target" : "demoapp"
+				}, {
+					"pattern" : "apps/worklist",
+					"name" : "worklist",
+					"target" : "worklist"
 				}
 				, {
 					"pattern" : "notFound",
@@ -138,11 +146,11 @@
 				},
 
 				"demoapp" : {
-					"viewName" : "App",
-					"viewId" : "demoApp",
-					"viewPath" : "launchpadder.apps.demoapp.webapp.view",
-					"viewLevel" : 2,
-					"async" : true
+
+				},
+
+				"worklist" : {
+
 				}
 			}
 		}
