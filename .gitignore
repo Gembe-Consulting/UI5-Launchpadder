@@ -44,6 +44,7 @@ $RECYCLE.BIN/
 .VolumeIcon.icns
 
 # Directories potentially created on remote AFP share
+.che
 .AppleDB
 .AppleDesktop
 Network Trash Folder
