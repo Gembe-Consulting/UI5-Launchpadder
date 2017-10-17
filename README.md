@@ -39,3 +39,6 @@ grunt
 ```
 
 6. Open the app in your browser: [http://localhost:8080](http://localhost:8080)
+7. 
+test local Branch
+test remote Bracnh
