@@ -2,8 +2,9 @@ sap.ui.define([
 		"sap/ui/core/UIComponent",
 		"sap/ui/Device",
 		"sap/ui/demo/worklist/model/models",
-		"sap/ui/demo/worklist/controller/ErrorHandler"
-	], function (UIComponent, Device, models, ErrorHandler) {
+		"sap/ui/demo/worklist/controller/ErrorHandler",
+		"sap/ui/demo/worklist/localService/mockserver"
+	], function (UIComponent, Device, models, ErrorHandler, server) {
 		"use strict";
 
 		return UIComponent.extend("sap.ui.demo.worklist.Component", {
@@ -21,6 +22,8 @@ sap.ui.define([
 			init : function () {
 				// call the base component's init function
 				UIComponent.prototype.init.apply(this, arguments);
+
+				//server.init();
 
 				// initialize the error handler with the component
 				this._oErrorHandler = new ErrorHandler(this);

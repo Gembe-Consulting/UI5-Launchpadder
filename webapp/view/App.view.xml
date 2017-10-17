@@ -8,9 +8,10 @@
 						<ShellHeadItem icon="sap-icon://home" startsSection="true" press="onNavToLaunchpad"/>
 					</headItems>
 					
-					<headEndItems>
-						<ShellHeadItem icon="sap-icon://log" startsSection="true"/>
-					</headEndItems>
+					<headItems>
+						<ShellHeadItem icon="sap-icon://arrow-left" startsSection="true" press="onLaunchpadNavBack"/>
+					</headItems>
+					
 					
 					<search>
 						<m:SearchField placeholder="{i18n>shell.searchFieldPlaceholder}" showRefreshButton="true"/>

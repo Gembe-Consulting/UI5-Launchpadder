@@ -14,7 +14,8 @@ sap.ui.define([
 			this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
 
 			var oShellData = {
-				logo : jQuery.sap.getModulePath("sap.ui.core", '/') + "mimes/logo/icotxt_white_220x72_blue.png"
+				logo : jQuery.sap.getModulePath("sap.ui.core", '/') + "mimes/logo/icotxt_white_220x72_blue.png",
+				rootIntent : "Shell-home"
 			};
 			this.getOwnerComponent().getModel("shellModel").setData(oShellData);
 
@@ -30,8 +31,13 @@ sap.ui.define([
 
 		},
 
-		onNavToLaunchpad : function () {
-			this.getRouter().navTo("default");
+		onNavToLaunchpad : function (oEvent) {
+			this.getRouter().navTo("launchpad");
+		},
+		
+		onLaunchpadNavBack: function (oEvent) {
+			this.onNavBack(oEvent);
 		}
+		
 	});
 });

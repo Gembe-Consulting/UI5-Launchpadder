@@ -1,0 +1,40 @@
+{
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "",
+    "defaultLanguage": "",
+    "defaultI18NPropertyFile": "",
+    "resourceModelName": ""
+  },
+  "mockpreview": {
+    "mockUri": "http://localhost:1337/services.odata.org/V2/Northwind/Northwind.svc/",
+    "metadataFilePath": "localService/metadata.xml",
+    "mockRequestsFilePath": "",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false
+  },
+  "performancetoolkit.runner": {
+    "e2eDuration": {
+      "error": 3750,
+      "warning": 2750
+    },
+    "roundTrips": {
+      "error": 4,
+      "warning": 2
+    },
+    "backendRequests": {
+      "error": 4,
+      "warning": 2
+    }
+  },
+  "beautifier": {
+    "keep_array_indentation": false,
+    "break_chained_methods": false,
+    "space_before_conditional": true,
+    "unescape_strings": false,
+    "tab_size": "1",
+    "max_preserve_newlines": "2",
+    "wrap_line_length": "140",
+    "brace_style": "collapse"
+  }
+}

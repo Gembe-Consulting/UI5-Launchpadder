@@ -11,6 +11,7 @@ sap.ui.define([
 			this.getRouter().attachRoutePatternMatched(this.onRoutePatternMatched, this);
 			this.getRouter().attachBypassed(this.onRouteBypassed, this);
 			this.getRouter().attachRouteMatched(this.onRouteMatched, this);
+			this.getRouter().attachBeforeRouteMatched(this.onBeforeRouteMatched, this);
 		},
 
 		/**
@@ -82,10 +83,15 @@ sap.ui.define([
 		},
 
 		onRouteMatched : function (oEvent) {
-			
+
 		},
+
+		onBeforeRouteMatched : function (oEvent) {
+
+		},
+		
 		onRoutePatternMatched : function (oEvent) {
-			
+
 		}
 
 	});

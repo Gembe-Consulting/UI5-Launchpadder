@@ -8,7 +8,8 @@
 
 	<!-- Bootstrapping UI5 -->
 	<script id="sap-ui-bootstrap"
-			src="resources/sap-ui-core.js"
+			src_old="resources/sap-ui-core.js"
+			src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
 			data-sap-ui-libs="sap.ui.core, sap.ui.layout, sap.ui.unified, sap.m"
 			data-sap-ui-theme="sap_belize"
 			data-sap-ui-compatVersion="edge"
@@ -20,13 +21,18 @@
 		sap.ui.getCore().attachInit(function () {
 			sap.ui.require([
 				"sap/m/Shell",
-				"sap/ui/core/ComponentContainer"
-			], function (Shell, ComponentContainer) {
+				"sap/ui/core/ComponentContainer",
+				"launchpadder/apps/worklist/webapp/localService/mockserver"
+			], function (Shell, ComponentContainer, WorklistMockServer) {
+				
+				WorklistMockServer.init();
+				
 				// initialize the UI component
 				new Shell({
 					app: new ComponentContainer({
 						height : "100%",
-						name : "launchpadder"
+						name : "launchpadder",
+						id : "launchpadder"
 					})
 				}).placeAt("content");
 			});
