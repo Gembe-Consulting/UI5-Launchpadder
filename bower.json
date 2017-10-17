@@ -1,6 +1,6 @@
 {
   "name": "launchpadder",
-  "description": "Launchpadder - a fiori-launchpad-like tile-based launcher application",
+  "description": "Launchpadder - a SAP fiori-launchpad-like tile-based launcher application",
   "private": true,
   "dependencies": {
     "openui5-sap.ui.core": "openui5/packaged-sap.ui.core#latest",
