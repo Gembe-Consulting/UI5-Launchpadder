@@ -8,6 +8,7 @@
 	<Button press="openWorklist" text="Open Worklist"/>
 	<TileContainer width="100%" height="100%" >
 		<tiles>
+<!--
 			<StandardTile press="onAppTilePress" title="demoapp App" info="in-page hash" number="1" icon="sap-icon://activate" activeIcon="sap-icon://flag">
 				<customData>
 					<c:CustomData key="tileAppId" value="demoapp"/>
@@ -38,6 +39,7 @@
 					<c:CustomData key="tileAppUrl" value="/app5"/>
 				</customData>
 			</StandardTile>
+-->
 		</tiles>
 	</TileContainer>
 </mvc:View>

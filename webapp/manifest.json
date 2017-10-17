@@ -1,156 +1,145 @@
 {
-	"_version" : "1.2.0",
-	"start_url" : "index.html",
+	"_version": "1.2.0",
+	"start_url": "index.html",
 
-	"sap.app" : {
-		"_version" : "1.2.0",
-		"id" : "launchpadder",
-		"type" : "application",
-		"i18n" : "i18n/i18n.properties",
-		"title" : "{{app.Title}}",
-		"subTitle" : "{{app.SubTitle}}",
-		"description" : "{{app.Description}}",
-		"tags" : {
-			"keywords" : [
+	"sap.app": {
+		"_version": "1.2.0",
+		"id": "launchpadder",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{app.Title}}",
+		"description": "{{app.Description}}",
+		"tags": {
+			"keywords": [
 				"{{app.Keyword1}}", "{{app.Keyword2}}"
 			]
 		},
-		"applicationVersion" : {
-			"version" : "1.0.0"
+		"applicationVersion": {
+			"version": "1.0.0"
 		},
-		"dataSources" : {
-			"mainService" : {
-				"uri" : "http://localhost:1337/services.odata.org/V2/Northwind/Northwind.svc/",
-				"type" : "OData",
-				"settings" : {
-					"odataVersion" : "2.0",
-					"localUri" : "localService/metadata.xml"
+		"dataSources": {
+			"mainService": {
+				"uri": "http://localhost:1337/services.odata.org/V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
 				}
 			}
 		}
 	},
 
-	"sap.ui" : {
-		"_version" : "1.2.0",
-		"technology" : "UI5",
-		"icons" : {
-			"icon" : "",
-			"favIcon" : "",
-			"phone" : "",
-			"phone@2" : "",
-			"tablet" : "",
-			"tablet@2" : ""
+	"sap.ui": {
+		"_version": "1.2.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
 		},
-		"deviceTypes" : {
-			"desktop" : true,
-			"tablet" : true,
-			"phone" : true
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
 		},
-		"supportedThemes" : [
+		"supportedThemes": [
 			"sap_belize",
 			"sap_bluecrystal"
 		]
 	},
 
-	"sap.ui5" : {
-		"_version" : "1.1.0",
-		"rootView" : {
-			"viewName" : "launchpadder.view.App",
-			"type" : "XML",
-			"id" : "rootApp"
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": {
+			"viewName": "launchpadder.view.App",
+			"type": "XML",
+			"id": "rootApp"
 		},
 
-		"dependencies" : {
-			"minUI5Version" : "1.38.0",
-			"libs" : {
-				"sap.ui.unified" : {},
-				"sap.ui.core" : {},
-				"sap.m" : {},
-				"sap.ui.layout" : {}
+		"dependencies": {
+			"minUI5Version": "1.38.0",
+			"libs": {
+				"sap.ui.unified": {},
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
 			}
 		},
 
-		"contentDensities" : {
-			"compact" : true,
-			"cozy" : true
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
 		},
 
-		"models" : {
-			"i18n" : {
-				"type" : "sap.ui.model.resource.ResourceModel",
-				"settings" : {
-					"bundleName" : "launchpadder.i18n.i18n"
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "launchpadder.i18n.i18n"
 				}
 			},
-			"shellModel" : {
-				"type" : "sap.ui.model.json.JSONModel"
+			"shellModel": {
+				"type": "sap.ui.model.json.JSONModel"
 			},
-			"userModel" : {
-				"type" : "sap.ui.model.json.JSONModel"
+			"userModel": {
+				"type": "sap.ui.model.json.JSONModel"
 			}
 		},
 
-		"routing" : {
-			"config" : {
-				"routerClass" : "sap.m.routing.Router",
-				"viewType" : "XML",
-				"viewPath" : "launchpadder.view",
-				"controlId" : "launchpadderShell",
-				"controlAggregation" : "content",
-				"clearControlAggregation" : true,
-				"transition" : "slide",
-				
-				"async" : false
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "launchpadder.view",
+				"controlId": "launchpadderShell",
+				"controlAggregation": "content",
+				"clearControlAggregation": true,
+				"transition": "slide",
+
+				"async": false
 			},
 
-			"routes" : [{
-					"pattern" : "",
-					"name" : "default",
-					"target" : "launchpad",
-					"greedy" : true
-				}, {
-					"pattern" : "launchpad",
-					"name" : "launchpad",
-					"target" : "launchpad"
-				}, {
-					"pattern" : "start",
-					"name" : "start",
-					"target" : "launchpad"
-				}, {
-					"pattern" : "apps/demoapp",
-					"name" : "demoapp",
-					"target" : "demoapp"
-				}, {
-					"pattern" : "apps/worklist",
-					"name" : "worklist",
-					"target" : "worklist"
-				}
-				, {
-					"pattern" : "notFound",
-					"name" : "notFound",
-					"target" : "notFound"
-				}
-			],
+			"routes": [{
+				"pattern": "",
+				"name": "default",
+				"target": "launchpad",
+				"greedy": true
+			}, {
+				"pattern": "launchpad",
+				"name": "launchpad",
+				"target": "launchpad"
+			}, {
+				"pattern": "start",
+				"name": "start",
+				"target": "launchpad"
+			}, {
+				"pattern": "apps/demoapp",
+				"name": "demoapp",
+				"target": "demoapp"
+			}, {
+				"pattern": "apps/worklist",
+				"name": "worklist",
+				"target": "worklist"
+			}, {
+				"pattern": "notFound",
+				"name": "notFound",
+				"target": "notFound"
+			}],
 
-			"targets" : {
-				"launchpad" : {
-					"viewName" : "AppTileContainer",
-					"viewId" : "appTileContainer",
-					"viewLevel" : 1
+			"targets": {
+				"launchpad": {
+					"viewName": "AppTileContainer",
+					"viewId": "appTileContainer",
+					"viewLevel": 1
 				},
-				"notFound" : {
-					"viewName" : "NotFound",
-					"viewId" : "notFound",
-					"transition" : "show",
-					"viewLevel" : 2
-				},
-
-				"demoapp" : {
-
-				},
-
-				"worklist" : {
-
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound",
+					"transition": "show",
+					"viewLevel": 2
 				}
 			}
 		}
